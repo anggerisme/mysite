@@ -7,6 +7,7 @@ const Header = ({ siteTitle }) => (
     style={{
       background: `rebeccapurple`,
       marginBottom: `1.45rem`,
+      opacity: "1",
     }}
   >
     <div
@@ -27,6 +28,62 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+    </div>
+    <div>
+      <nav
+        style={{
+          color: `white`,
+          textDecoration: `none`,
+        }}
+      >
+        <ul
+          style={{
+            color: `white`,
+            textDecoration: `none`,
+          }}
+        >
+          <li
+            style={{
+              color: `white`,
+            }}
+          >
+            {" "}
+            <Link
+              to="/blog"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              Blog
+            </Link>
+          </li>
+          <li>
+            {" "}
+            <Link
+              to="/contact"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              Contact
+            </Link>
+          </li>
+          <li>
+            {" "}
+            <Link
+              to="/page-2"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              About
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 )
