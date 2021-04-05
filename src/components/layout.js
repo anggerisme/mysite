@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
+          nama
         }
       }
     }
@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header siteTitle={data.site.siteMetadata?.nama || `Title`} />
       <div
         style={{
           margin: `0 auto`,
@@ -42,7 +42,9 @@ const Layout = ({ children }) => {
         >
           © {new Date().getFullYear()}, Created by
           {` `}
-          <a href="https://www.angger.me">Anggerisme</a>
+          <a href="https://www.angger.me" style={{ textDecoration: `none` }}>
+            {data.site.siteMetadata.nama}
+          </a>
         </footer>
       </div>
     </>
