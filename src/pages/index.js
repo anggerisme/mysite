@@ -4,11 +4,9 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Head from "../components/head"
 
 const IndexPage = () => (
   <Layout>
-    <Head />
     <SEO title="Home" />
     <h1>My Blog</h1>
     <p>Welcome to your new Gatsby site.</p>
