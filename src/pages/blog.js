@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
+import "../components/blogcss.css"
 
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
@@ -12,7 +13,7 @@ const BlogPage = () => {
           node {
             title
             slug
-            publishedDate(fromNow: true)
+            publishedDate(formatString: "YYYY MMMM DD")
           }
         }
       }
@@ -20,14 +21,19 @@ const BlogPage = () => {
   `)
   return (
     <Layout>
-      <h1>Blog</h1>
+      <h2>Blog</h2>
       <ol>
         {data.allContentfulBlogPost.edges.map(edge => {
           return (
             <li>
-              <Link to={`/blog/${edge.node.slug}`}>
-                <h2>{edge.node.title}</h2>
-                <p>{edge.node.publisheDate}</p>
+              <Link
+                style={{
+                  fontWeight: 100,
+                }}
+                to={`/blog/${edge.node.slug}`}
+              >
+                <h3>{edge.node.title}</h3>
+                <h1>{edge.node.publisheDate}</h1>
               </Link>
             </li>
           )

@@ -1,27 +1,36 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import styled from "styled-components"
+// import "./header.css"
+import "./menu.js"
+
+const SiteHeader = styled.header`
+  margin-bottom:0;
+  opacity: 1;
+`
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-      opacity: "1",
-    }}
-  >
+  <SiteHeader>
     <div
       style={{
         margin: `0 auto`,
+        marginBottom: "0",
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `1.45rem 1.0875rem`, // Header padding
+        alignItems: 'center',
+        textAlign:'center',
       }}
     >
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: `black`,
+            textAlign: "center",
+            justifyContent: "center",
+          
+            alignItems:'center',
             textDecoration: `none`,
           }}
         >
@@ -29,63 +38,8 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
-    <div>
-      <nav
-        style={{
-          color: `white`,
-          textDecoration: `none`,
-        }}
-      >
-        <ul
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          <li
-            style={{
-              color: `white`,
-            }}
-          >
-            {" "}
-            <Link
-              to="/blog"
-              style={{
-                color: `white`,
-                textDecoration: `none`,
-              }}
-            >
-              Blog
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to="/contact"
-              style={{
-                color: `white`,
-                textDecoration: `none`,
-              }}
-            >
-              Contact
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to="/page-2"
-              style={{
-                color: `white`,
-                textDecoration: `none`,
-              }}
-            >
-              About
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <menu />
+  </SiteHeader>
 )
 
 Header.propTypes = {

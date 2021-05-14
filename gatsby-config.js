@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Angger's Blog`,
-    nama: `angger`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    nama: `@anggerisme`,
+    description: `Official site of @anggerisme.`,
     author: `@Anggerisme`,
     email: `kontak@angger.me`,
   },
@@ -56,7 +56,21 @@ module.exports = {
     },
 
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        useResolveUrlLoader: true,
+        sourceMap: true,
+      },
+    },
+
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+
+      }
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,

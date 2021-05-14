@@ -16,9 +16,9 @@ const Contact = () => {
     <Layout>
       <div>
         <h1>Contact Me</h1>
-        <p>Email {data.site.siteMetadata.email}</p>
+        <p>Email : {data.site.siteMetadata.email}</p>
 
-        <p>Diisi nanti............</p>
+        {/* <p>Diisi nanti............</p> */}
       </div>
     </Layout>
   )
