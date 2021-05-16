@@ -65,7 +65,7 @@ const Layout = ({ children }) => {
               // background: "red",
             }}
           >
-            <li
+            {/* <li
               style={{
                 fontStyle: "bold",
               }}
@@ -79,7 +79,7 @@ const Layout = ({ children }) => {
               >
                 Blog
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link style={{ textDecoration: "none" }} to="/contact">
                 Contact
@@ -100,7 +100,7 @@ const Layout = ({ children }) => {
         >
           © {new Date().getFullYear()}, Created by
           {` `}
-          <a href="https://www.angger.me" style={{ textDecoration: `none` }}>
+          <a href="#" style={{ textDecoration: `none` }}>
             {data.site.siteMetadata.nama}
           </a>
         </footer>

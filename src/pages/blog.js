@@ -8,13 +8,11 @@ import "../components/blogcss.css"
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
-        edges {
-          node {
-            title
-            slug
-            publishedDate(formatString: "YYYY MMMM DD")
-          }
+      allWpPost {
+        nodes {
+          date(formatString: "YYYY MMMM DD")
+          title
+          slug
         }
       }
     }
@@ -23,17 +21,17 @@ const BlogPage = () => {
     <Layout>
       <h2>Blog</h2>
       <ol>
-        {data.allContentfulBlogPost.edges.map(edge => {
+        {data.allWpPost.nodes.map(nodes => {
           return (
             <li>
               <Link
                 style={{
                   fontWeight: 100,
                 }}
-                to={`/blog/${edge.node.slug}`}
+                to={`/blog/${nodes.slug}`}
               >
-                <h3>{edge.node.title}</h3>
-                <h1>{edge.node.publisheDate}</h1>
+                <h3>{nodes.title}</h3>
+                <h2>{nodes.date}</h2>
               </Link>
             </li>
           )

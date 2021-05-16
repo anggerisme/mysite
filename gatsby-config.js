@@ -67,9 +67,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-styled-components`,
-      options: {
-
-      }
+      options: {},
     },
     `gatsby-plugin-sharp`,
     {
@@ -85,6 +83,49 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        debug: {
+          copyHTMLResponseOnError: true,
+        },
+        url: `https://angger.me/graphql`,
+        schema: {
+          typePrefix: `Wp`,
+        },
+        develop: {
+          hardCacheMediaFiles: true,
+        },
+        // I have created a dummy site for us to use with the plugins we discussed
+        baseUrl: "https://www.angger.me",
+        protocol: "https",
+        hostingWPCOM: false,
+        // We will be using some advanced custom fields
+        useACF: true,
+        acfOptionPageIds: [],
+        verboseOutput: false,
+        perPage: 100,
+        searchAndReplaceContentUrls: {
+          sourceUrl: "https://www.angger.me",
+          replacementUrl: "https://localhost:8000",
+        },
+        // Set how many simultaneous requests are sent at once.
+        concurrentRequests: 10,
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/pages",
+          "**/media",
+          "**/tags",
+          "**/taxonomies",
+          "**/users",
+        ],
+        excludedRoutes: [],
+        normalizer: function ({ entities }) {
+          return entities
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

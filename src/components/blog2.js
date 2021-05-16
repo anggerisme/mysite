@@ -8,20 +8,18 @@ import "./blogcss.css"
 const BlogPage2 = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
-        edges {
-          node {
-            title
-            slug
-            publishedDate(formatString: "YYYY MMMM DD")
-          }
+      allWpPost {
+        nodes {
+          date(formatString: "YYYY MMMM DD")
+          title
+          slug
         }
       }
     }
   `)
   return (
     <menu>
-      {data.allContentfulBlogPost.edges.map(edge => {
+      {data.allWpPost.nodes.map(nodes => {
         return (
           <li
             style={{
@@ -30,28 +28,32 @@ const BlogPage2 = () => {
               listStyle: "none",
             }}
           >
-            <Link to={`/blog/${edge.node.slug}`}>
-              <h3
-                style={{
-                  textDecoration: "none",
-                  listStyle: "none",
-                  color: "grey",
-                  fontWeight: 400,
-                }}
-              >
-                {edge.node.publishedDate}
-              </h3>
+            <Link to={`/blog/${nodes.slug}`}>
+              <div className="title">
+                <h4
+                  style={{
+                    textDecoration: "none",
+                    listStyle: "none",
+                    color: "grey",
+                    fontWeight: 300,
+                    fontStyle: "italic",
+                  }}
+                >
+                  {nodes.date}
+                </h4>
+                {/* <p> - </p> */}
 
-              <h4
-                style={{
-                  color: "grey",
-                  textDecoration: "none",
-                  listStyle: "none",
-                  fontWeight: 300,
-                }}
-              >
-                {edge.node.title}
-              </h4>
+                <h4
+                  style={{
+                    color: "grey",
+                    textDecoration: "none",
+                    listStyle: "none",
+                    fontWeight: 500,
+                  }}
+                >
+                  {nodes.title}
+                </h4>
+              </div>
               <hr></hr>
             </Link>
           </li>

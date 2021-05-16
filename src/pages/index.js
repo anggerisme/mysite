@@ -11,6 +11,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <h2>Journal</h2>
     <BlogPage2 />
+
     {/* <p>Welcome to your new Gatsby site.</p>
     <p>Testing site - Under maintenance - test-test.</p> */}
     {/* <p>
